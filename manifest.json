@@ -10,7 +10,6 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "scripts/background.js"
     ]
   },
   "permissions": [
@@ -18,9 +17,6 @@
     "storage",
     "https://github.com/*/*/pull/*"
   ],
-  "options_ui": {
-    "page": "options.html"
-  },
   "content_scripts": [
     {
       "matches": [

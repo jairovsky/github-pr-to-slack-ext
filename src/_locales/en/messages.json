@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "GitHub PR title Slack formatter",
+    "description": "The name of the extension."
+  },
+  "appDescription": {
+    "message": "Formats essential PR info in Slack-markdown",
+    "description": "The description of the extension."
+  },
+  "btnTooltip": {
+    "message": "Ext Starter",
+    "description": "Tooltip for the button."
+  }
+}

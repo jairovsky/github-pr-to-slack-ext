@@ -14,22 +14,22 @@ let  template =`
 </div>
 `;
 
-let create = html => {
-  let div = document.createElement('div');
-  div.innerHTML = html.trim();
-  return div;
-}
-let collectInfo = () => {
+setTimeout(function () {
+  let create = html => {
+    let div = document.createElement('div');
+    div.innerHTML = html.trim();
+    return div;
+  }
+  let collectInfo = () => {
+    let link = document.location.href;
+    let title = document.querySelector('.js-issue-title').textContent.trim();
+    let diffplus = document.querySelector('#diffstat .text-green').textContent.trim();
+    let diffminus = document.querySelector('#diffstat .text-red').textContent.trim();
 
+    let r = `\`${diffplus}\` \`${diffminus}\` _${title}_ ${link}`
+    return r
+  }
 
-  let link = document.location.href;
-  let title = document.querySelector('.js-issue-title').textContent.trim();
-  let diffplus = document.querySelector('#diffstat .text-green').textContent.trim();
-  let diffminus = document.querySelector('#diffstat .text-red').textContent.trim();
-
-  let r = `\`${diffplus}\` \`${diffminus}\` _${title}_ ${link}`
-  return r
-}
-
-let prInfoContainer = document.querySelector('.js-check-all-container');
-prInfoContainer.insertBefore(create(template.replace(/XXX/g, collectInfo())), prInfoContainer.firstChild)
+  let prInfoContainer = document.querySelector('.js-check-all-container');
+  prInfoContainer.insertBefore(create(template.replace(/XXX/g, collectInfo())), prInfoContainer.firstChild)
+}, 1200);

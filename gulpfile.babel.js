@@ -42,7 +42,7 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', (cb) => {
-  $.runSequence('clean', 'styles', 'ext', cb)
+  $.runSequence('clean', 'ext', cb)
 });
 
 gulp.task('watch', ['build'], () => {
@@ -127,10 +127,7 @@ function mergeAll(dest) {
 
 function buildJS(target) {
   const files = [
-    'background.js',
     'contentscript.js',
-    'options.js',
-    'popup.js',
     'livereload.js'
   ]
 
@@ -149,11 +146,11 @@ function buildJS(target) {
     .pipe(buffer())
     .pipe(gulpif(!production, $.sourcemaps.init({ loadMaps: true }) ))
     .pipe(gulpif(!production, $.sourcemaps.write('./') ))
-    .pipe(gulpif(production, $.uglify({ 
+    .pipe(gulpif(production, $.uglify({
       "mangle": false,
       "output": {
         "ascii_only": true
-      } 
+      }
     })))
     .pipe(gulp.dest(`build/${target}/scripts`));
   });

@@ -1,5 +1,11 @@
 import ext from "./utils/ext";
 
+const parser = new DOMParser();
+const parseHtml = ( domstring) => {
+    let html = parser.parseFromString( domstring , 'text/html');
+    return Array.from(html.body.childNodes);
+};
+
 let  template =`
 <div class="flash flash-info width-full mb-3 p-2 d-flex flex-items-start flex-column">
   <div>
@@ -17,8 +23,7 @@ let  template =`
 setTimeout(function () {
   let create = html => {
     let div = document.createElement('div');
-    div.innerHTML = html.trim();
-    return div;
+    return parseHtml(html)[0];
   }
   let collectInfo = () => {
     let link = document.location.href;

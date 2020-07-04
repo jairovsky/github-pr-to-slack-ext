@@ -7,6 +7,7 @@
     <strong>A little browser extension that formats essential Github pull request info in Slack-compatible markdown.</strong>
   </p>
 </div>
+
 ![Selection_008](https://user-images.githubusercontent.com/1995580/86501493-a4ac5b80-bd6f-11ea-9cb4-8bde185e6ebb.png)
 
 
